@@ -7,6 +7,22 @@
 
   <name>FreeHEP Typed Properties</name>
 
+  <scm>
+    <connection>scm:git:git://github.com/freehep/freehep-typed-properties.git</connection>
+    <developerConnection>scm:git:git@github.com:freehep/freehep-typed-properties.git</developerConnection>
+    <url>http://github.com/freehep/freehep-typed-properties</url>
+  </scm>
+
+  <issueManagement>
+    <system>jira</system>
+    <url>http://bugs.freehep.org/browse/???</url>
+  </issueManagement>
+
+  <properties>
+    <mavenVersion>2.0.9</mavenVersion>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
   <build>
     <defaultGoal>install</defaultGoal>
     <plugins>
