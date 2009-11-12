@@ -1,0 +1,8 @@
+FREEHEP - Copyright 2007-2009
+
+This software is licensed under:
+
+- The Apache license, see the file APACHE-LICENSE-2.0.txt
+
+
+
