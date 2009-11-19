@@ -5,11 +5,9 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import org.freehep.properties.Assert;
 import org.freehep.properties.PersistentTypedProperties;
 import org.freehep.properties.TypedProperties;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -51,14 +49,15 @@ public class NonTypedPropertiesTest {
 		org.junit.Assert.assertEquals(42.7, properties.get("Age", 0.0f), 0.001);
 	}
 
-	@Test(expected = ClassCastException.class)
+	@Test(expected = NumberFormatException.class)
 	public void getWrongType() {
 		properties.get("Name", 20);
 	}
 
 	@Test
 	public void getWrongString() {
-		org.junit.Assert.assertEquals("default", properties.get("unknown", "default"));
+		org.junit.Assert.assertEquals("default", properties.get("unknown",
+				"default"));
 	}
 
 	@Test
@@ -72,20 +71,16 @@ public class NonTypedPropertiesTest {
 	}
 
 	@Test
-	@Ignore
-	public void getFileName() {
-		org.junit.Assert.assertEquals(properties.get("FileName", (File) null), new File(
-				"TestFileName"));
+	public void getFile() {
+		org.junit.Assert.assertEquals(new File("TestFileName"), properties.get(
+				"FileName", new File("")));
 	}
 
 	@Test
-	@Ignore
-	public void getURL() {
-		try {
-			org.junit.Assert.assertEquals(properties.get("URL", (URL) null), new URL(
-					"http://java.freehep.org/TypedProperties"));
-		} catch (MalformedURLException mfue) {
-			// ignored
-		}
+	// @Ignore
+	public void getURL() throws MalformedURLException {
+		org.junit.Assert.assertEquals(new URL(
+				"http://java.freehep.org/TypedProperties"), properties.get(
+				"URL", new URL("file:")));
 	}
 }

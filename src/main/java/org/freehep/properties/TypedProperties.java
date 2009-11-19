@@ -222,9 +222,16 @@ public class TypedProperties {
 				return subProperties.get(m.group(2) + m.group(3), defaultValue);
 			}
 		} else {
-			T o = (T) properties.get(key);
+			Object o = properties.get(key);
 			if (o != null) {
-				return o;
+				// special case, for non-typed files if a default value (type) is given
+				if (getType(key).equals(String.class) && defaultValue != null) {
+					PropertyConverter<?> converter = converters.get(defaultValue.getClass());
+					if ((converter != null) && (converter instanceof SimpleTypePropertyConverter<?>)) {
+						return ((SimpleTypePropertyConverter<T>)converter).toObject((String)o);
+					}
+				}
+				return (T)o;
 			}
 		}
 
