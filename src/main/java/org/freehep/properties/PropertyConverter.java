@@ -25,7 +25,7 @@ public interface PropertyConverter<T> {
 	 * @param value
 	 *            value to store
 	 */
-	public void store(Properties p, String key, Class<?> type, T value);
+	void store(Properties p, String key, Class<?> type, T value);
 
 	/**
 	 * Load key, typeName, value into properties table. You would normally
@@ -41,7 +41,7 @@ public interface PropertyConverter<T> {
 	 * @param value
 	 *            value to be loaded into table
 	 */
-	public void load(TypedProperties properties, String key, Class<?> type,
+	void load(TypedProperties properties, String key, Class<?> type,
 			String value);
 
 }

@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
  * @author Mark Donszelmann (Mark.Donszelmann@gmail.com)
  */
 public class ListPropertyConverter<T> implements PropertyConverter<List<T>> {
-	private static final Pattern arrayPattern = Pattern
+	private static final Pattern ARRAY_PATTERN = Pattern
 			.compile("([^\\[]+)\\[(\\d+)\\](.*)");
 	private Map<Class<?>, PropertyConverter<T>> converters;
 
@@ -37,7 +37,7 @@ public class ListPropertyConverter<T> implements PropertyConverter<List<T>> {
 
 	public void load(TypedProperties properties, String key,
 			Class<?> entryType, String value) {
-		Matcher m = arrayPattern.matcher(key);
+		Matcher m = ARRAY_PATTERN.matcher(key);
 		if (m.matches()) {
 			String mainKey = m.group(1);
 			List<Object> list = properties.get(mainKey, (List<Object>) null);

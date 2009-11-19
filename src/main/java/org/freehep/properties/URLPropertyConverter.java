@@ -11,16 +11,16 @@ import java.net.URL;
 public class URLPropertyConverter extends SimpleTypePropertyConverter<URL> {
 
 	@Override
-	public String toString(URL value) {
+	public final String toString(URL value) {
 		return value.toExternalForm();
 	}
 
 	@Override
-	public URL toObject(String value) {
+	public final URL toObject(String value) {
 		try {
 			return new URL(value);
 		} catch (MalformedURLException mfue) {
-			throw new RuntimeException(mfue);
+			throw new IllegalArgumentException(mfue);
 		}
 	}
 }

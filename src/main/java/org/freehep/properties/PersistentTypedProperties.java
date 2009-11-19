@@ -268,8 +268,8 @@ public class PersistentTypedProperties extends TypedProperties {
 		} catch (NumberFormatException nfe) {
 		}
 
-		if (value.toLowerCase().equals("true")
-				|| value.toLowerCase().equals("false")) {
+		if (value.equalsIgnoreCase("true")
+				|| value.equalsIgnoreCase("false")) {
 			return Boolean.class.getName();
 		}
 

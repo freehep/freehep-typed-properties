@@ -142,7 +142,7 @@ public class TypedProperties {
 
 	protected <T> void setProperty(String key, Class<?> type, T value) {
 		// handle key patters as key{subkey}...
-		Matcher m = TypedPropertiesConverter.mapPattern.matcher(key);
+		Matcher m = TypedPropertiesConverter.MAP_PATTERN.matcher(key);
 		if (m.matches()) {
 			String mainKey = m.group(1);
 			TypedProperties subProperties = (TypedProperties) properties
@@ -151,8 +151,7 @@ public class TypedProperties {
 				subProperties = new TypedProperties(this, mainKey);
 			}
 
-			key = m.group(2);
-			subProperties.set(key + m.group(3), type, value);
+			subProperties.set(m.group(2) + m.group(3), type, value);
 			return;
 		}
 
@@ -213,7 +212,7 @@ public class TypedProperties {
 	@SuppressWarnings("unchecked")
 	public <T> T get(String key, T defaultValue) {
 		// handle key pattern such as key{subkey}...
-		Matcher m = TypedPropertiesConverter.mapPattern.matcher(key);
+		Matcher m = TypedPropertiesConverter.MAP_PATTERN.matcher(key);
 		if (m.matches()) {
 			String mainKey = m.group(1);
 			TypedProperties subProperties = (TypedProperties) properties
@@ -271,7 +270,7 @@ public class TypedProperties {
 	 */
 	public Class<?> getType(String key) {
 		// handle key pattern such as key{subkey}...
-		Matcher m = TypedPropertiesConverter.mapPattern.matcher(key);
+		Matcher m = TypedPropertiesConverter.MAP_PATTERN.matcher(key);
 		if (m.matches()) {
 			String mainKey = m.group(1);
 			TypedProperties subProperties = (TypedProperties) properties
@@ -422,7 +421,7 @@ public class TypedProperties {
 		return get(key, (Boolean) defaultValue);
 	}
 
-	protected static HashMap<Class<?>, PropertyConverter<?>> converters;
+    protected static Map<Class<?>, PropertyConverter<?>> converters;
 
 	/**
 	 * Register Converter to use for "type" to String and vice-versa
@@ -453,7 +452,7 @@ public class TypedProperties {
 		register(List.class, new ListPropertyConverter(converters));
 	}
 
-	private static class Empty extends TypedProperties {
+	private static final class Empty extends TypedProperties {
 		private Empty() {
 			super(null, "empty");
 			setReadOnly();

@@ -9,9 +9,9 @@ import java.io.File;
  */
 public interface FileListener {
 
-	public void fileCreated(File file);
+	void fileCreated(File file);
 
-	public void fileChanged(File file);
+	void fileChanged(File file);
 
-	public void fileRemoved(File file);
+	void fileRemoved(File file);
 }

@@ -21,7 +21,7 @@ public class ReadOnlyTypedPropertiesTest {
 
 	protected String testFileName = "TestProperties.properties";
 	protected TypedProperties properties;
-
+	
 	@Before
 	public void readFile() {
 		properties = new PersistentTypedProperties(new File(testFileName), true);

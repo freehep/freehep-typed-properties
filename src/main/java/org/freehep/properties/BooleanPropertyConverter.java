@@ -8,16 +8,13 @@ package org.freehep.properties;
 public class BooleanPropertyConverter extends
 		SimpleTypePropertyConverter<Boolean> {
 	@Override
-	public String toString(Boolean value) {
+	public final String toString(Boolean value) {
 		return Boolean.toString(value);
 	}
 
 	@Override
-	public Boolean toObject(String value) {
-		if (value == null) {
-			value = "false";
-		}
-		return Boolean.parseBoolean(value);
+	public final Boolean toObject(String value) {
+		return Boolean.parseBoolean(value != null ? value : "false");
 	}
 
 }

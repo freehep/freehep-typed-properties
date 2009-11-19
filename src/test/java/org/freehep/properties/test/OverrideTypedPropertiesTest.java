@@ -5,7 +5,6 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 
-import org.freehep.properties.Assert;
 import org.freehep.properties.PersistentTypedProperties;
 import org.freehep.properties.TypedProperties;
 import org.junit.Before;

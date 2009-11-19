@@ -9,7 +9,7 @@ import org.junit.internal.ArrayComparisonFailure;
  * 
  * @author Mark Donszelmann (Mark.Donszelmann@gmail.com)
  */
-public class Assert extends org.junit.Assert {
+public final class Assert extends org.junit.Assert {
 
 	private Assert() {
 		// static only

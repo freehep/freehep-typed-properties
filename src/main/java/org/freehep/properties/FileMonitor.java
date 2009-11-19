@@ -11,7 +11,7 @@ import java.util.TimerTask;
 /**
  * @author Mark Donszelmann (Mark.Donszelmann@gmail.com)
  */
-public class FileMonitor {
+public final class FileMonitor {
 	private static Map<Long, FileMonitor> monitors = new HashMap<Long, FileMonitor>(
 			1);
 

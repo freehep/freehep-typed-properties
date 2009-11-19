@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
  */
 public class TypedPropertiesConverter implements
 		PropertyConverter<TypedProperties> {
-	static final Pattern mapPattern = Pattern
+	static final Pattern MAP_PATTERN = Pattern
 			.compile("([^\\{]+)\\{([^\\}]+)\\}(.*)");
 	private Map<Class<?>, PropertyConverter<?>> converters;
 
@@ -30,7 +30,7 @@ public class TypedPropertiesConverter implements
 
 	public void load(TypedProperties properties, String key, Class<?> type,
 			String value) {
-		Matcher m = mapPattern.matcher(key);
+		Matcher m = MAP_PATTERN.matcher(key);
 		if (m.matches()) {
 			String mainKey = m.group(1);
 			TypedProperties subProperties = properties.get(mainKey,
@@ -39,23 +39,23 @@ public class TypedPropertiesConverter implements
 				subProperties = new TypedProperties(properties, mainKey);
 			}
 
-			key = m.group(2);
+			String subKey = m.group(2);
 			if (!m.group(3).equals("")) {
 				// FIXME, assumed it is {}{}
-				load(subProperties, key + m.group(3), type, value);
+				load(subProperties, subKey + m.group(3), type, value);
 			} else {
 				PropertyConverter<?> converter = converters.get(type);
 				if (converter == null) {
 					System.err
 							.println("TypedProperties.load: No Converter defined for '"
-									+ type + "' of '" + key + "'");
+									+ type + "' of '" + subKey + "'");
 				} else {
 					try {
-						converter.load(subProperties, key, type, value);
+						converter.load(subProperties, subKey, type, value);
 					} catch (Exception e) {
 						System.err
 								.println("TypedProperties.load: Could not load property '"
-										+ key + "' with type '" + type + "'");
+										+ subKey + "' with type '" + type + "'");
 					}
 				}
 			}

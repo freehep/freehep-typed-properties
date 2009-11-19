@@ -16,8 +16,8 @@ import org.junit.Test;
  */
 public class NonTypedPropertiesTest {
 
-	protected String testFileName = "NonTypedTestProperties.properties";
-	protected TypedProperties properties;
+	private String testFileName = "NonTypedTestProperties.properties";
+	private TypedProperties properties;
 
 	@Before
 	public void readFile() {
