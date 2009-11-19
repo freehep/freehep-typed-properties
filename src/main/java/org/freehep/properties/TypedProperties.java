@@ -208,7 +208,7 @@ public class TypedProperties {
 	 * 
 	 * @param key
 	 * @param defaultValue
-	 * @return
+	 * @return property for given key
 	 */
 	@SuppressWarnings("unchecked")
 	public <T> T get(String key, T defaultValue) {
@@ -260,7 +260,7 @@ public class TypedProperties {
 	 * 
 	 * @param key
 	 *            property name
-	 * @return
+	 * @return type of property
 	 */
 	public Class<?> getType(String key) {
 		// handle key pattern such as key{subkey}...

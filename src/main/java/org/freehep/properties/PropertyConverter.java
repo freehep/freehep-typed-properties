@@ -36,7 +36,7 @@ public interface PropertyConverter<T> {
 	 *            table to load property into
 	 * @param key
 	 *            key under which name to load property
-	 * @param typeName
+	 * @param type
 	 *            type to convert value to
 	 * @param value
 	 *            value to be loaded into table
