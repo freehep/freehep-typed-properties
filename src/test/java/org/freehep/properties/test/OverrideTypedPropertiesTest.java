@@ -70,7 +70,7 @@ public class OverrideTypedPropertiesTest {
 		org.junit.Assert.assertTrue(properties.get("valid", false));
 	}
 
-	@Test(expected = ClassCastException.class)
+	@Test(expected = NumberFormatException.class)
 	public void getWrongType() {
 		properties.get("Name", 20);
 	}

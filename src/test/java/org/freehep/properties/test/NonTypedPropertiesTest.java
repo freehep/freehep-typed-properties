@@ -77,7 +77,6 @@ public class NonTypedPropertiesTest {
 	}
 
 	@Test
-	// @Ignore
 	public void getURL() throws MalformedURLException {
 		org.junit.Assert.assertEquals(new URL(
 				"http://java.freehep.org/TypedProperties"), properties.get(

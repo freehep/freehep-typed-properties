@@ -52,7 +52,7 @@ public class PersistentTypedPropertiesTest {
 		org.junit.Assert.assertTrue(properties.get("Programmer", false));
 	}
 
-	@Test(expected = ClassCastException.class)
+	@Test(expected = NumberFormatException.class)
 	public void getWrongType() {
 		properties.get("Name", 20);
 	}
