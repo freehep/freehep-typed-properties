@@ -52,7 +52,7 @@ public class ListPropertyConverter<T> implements PropertyConverter<List<T>> {
 			if (converter == null) {
 				System.err.println("List.load: No Converter defined for '"
 						+ entryType + "' of '" + key + "'");
-			} else if (converter instanceof SimpleTypePropertyConverter) {
+			} else if (converter instanceof SimpleTypePropertyConverter<?>) {
 				SimpleTypePropertyConverter<?> simpleTypePropertyConverter = (SimpleTypePropertyConverter<?>) converter;
 				while (list.size() <= index) {
 					list.add(null);

@@ -329,7 +329,7 @@ public class TypedProperties {
 			Object value = properties.get(key);
 			key = (parentKey != null) ? parentKey + "{" + key + "}" : key;
 			Class<?> type = value.getClass();
-			if (value instanceof List) {
+			if (value instanceof List<?>) {
 				type = List.class;
 			}
 			store(p, key, type, value);
@@ -421,7 +421,7 @@ public class TypedProperties {
 		return get(key, (Boolean) defaultValue);
 	}
 
-    protected static Map<Class<?>, PropertyConverter<?>> converters;
+    protected static HashMap<Class<?>, PropertyConverter<?>> converters;
 
 	/**
 	 * Register Converter to use for "type" to String and vice-versa
