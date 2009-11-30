@@ -421,8 +421,15 @@ public class TypedProperties {
 		return get(key, (Boolean) defaultValue);
 	}
 
-    protected static HashMap<Class<?>, PropertyConverter<?>> converters;
+    private static HashMap<Class<?>, PropertyConverter<?>> converters;
 
+    public synchronized static PropertyConverter<?> getConverter(Class<?> type) {
+		if (converters == null) {
+			converters = new HashMap<Class<?>, PropertyConverter<?>>();
+		}
+		return converters.get(type);
+    }
+    
 	/**
 	 * Register Converter to use for "type" to String and vice-versa
 	 * conversions.
@@ -432,12 +439,14 @@ public class TypedProperties {
 	 * @param converter
 	 *            converter for this type
 	 */
-	public static void register(Class<?> type, PropertyConverter<?> converter) {
+	public synchronized static void register(Class<?> type, PropertyConverter<?> converter) {
+		if (converters == null) {
+			converters = new HashMap<Class<?>, PropertyConverter<?>>();
+		}
 		converters.put(type, converter);
 	}
 
-	static {
-		converters = new HashMap<Class<?>, PropertyConverter<?>>();
+    static {
 		// simple types
 		register(String.class, new StringPropertyConverter());
 		register(File.class, new FilePropertyConverter());

@@ -234,7 +234,7 @@ public class PersistentTypedProperties extends TypedProperties {
 					break;
 				}
 			}
-			PropertyConverter<?> converter = converters.get(lookupType);
+			PropertyConverter<?> converter = TypedProperties.getConverter(lookupType);
 			if (converter == null) {
 				System.err
 						.println("PersistentTypedProperties.load: No Converter defined for '"
