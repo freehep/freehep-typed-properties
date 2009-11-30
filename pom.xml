@@ -10,6 +10,12 @@
   <description>Enhancement for java.util.Properties to store typed properties and collections of those properties</description>
   <url>http://freehep.github.com/freehep-typed-properties</url>
 
+  <organization>
+    <name>FreeHEP</name>
+    <url>http://java.freehep.org</url>
+  </organization>
+  <inceptionYear>2001</inceptionYear>
+
   <licenses>
     <license>
       <name>Apache 2</name>
@@ -40,8 +46,8 @@
   </developers>
 
   <issueManagement>
-    <system>jira</system>
-    <url>http://bugs.freehep.org/browse/???</url>
+    <system>github</system>
+    <url>http://github.com/freehep/freehep-typed-properties/issues</url>
   </issueManagement>
 
   <properties>
@@ -60,6 +66,11 @@
       <name>FreeHEP Snapshot Repository</name>
       <url>http://oss.sonatype.org/content/repositories/freehep-snapshots/</url>
     </snapshotRepository>
+    <!-- temporarily until we have a fixed site -->
+    <site>
+      <id>local</id>
+      <url>file:///Users/duns/freehep/git/freehep-typed-properties-site</url>
+    </site>
   </distributionManagement>
 
   <build>
@@ -89,6 +100,16 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <inherited>true</inherited>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </reporting>
 
   <profiles>
     <profile>

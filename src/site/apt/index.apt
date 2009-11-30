@@ -1,0 +1,52 @@
+	---
+FreeHEP Typed Properties
+	---
+	---
+Mark Donszelmann
+	---
+	
+Introduction
+
+	The Typed Properties library replaces the java.util.Properties class and adds strict typong to it. 
+The properties files read and written contain the type of the property (String, int, float, ...) and will
+type-check and return the correct type. Older property files (which contain merely strings) can also be
+read. Typed Properties also allow you to write lists (arrays) of values as well as tables (maps).
+You can also add your own handler for a specific type.
+
+	TypedProperties is similar to java.util.Properties but allows for storage of "typed" elements 
+rather than just Strings.
+
+	Simple elements are stored as:
+
++--
+ key = javatype value
+      where javatype is for instance java.lang.String, java.lang.Integer etc.
++--
+ 
+	Complex types (arrays and tables) are also allowed. They are stored as:
+
++--
+ key{subkey} = javatype value
+      for tables
+ 
+ key[index] = javatype value
+      for arrays
++--
+ 
+	Tables can be recursive.
+
+	Methods are available to set and get properties of different types. The get methods all need a default which needs to be of the requested type, 
+but can be set to null or some other default.
+
+	There is NO conversion from int to float etc.
+
+	Defaults for the whole table can be given by a backing TypedProperties table. If a property is not found the default table will be searched. 
+They can be cascaded into many tables.
+
+	Setting a simple property to a value that is already set in the default, will remove the property from this table. A lookup will still give the value from the default table. Persisting this table will result in 
+this property not being written.
+
+	TypedProperties is persistent by means of a standard properties file. Older files (without the type added)
+can also be read (but not written).
+	
+	
