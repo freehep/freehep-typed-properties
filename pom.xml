@@ -3,7 +3,7 @@
 
 	<groupId>org.freehep</groupId>
 	<artifactId>freehep-typed-properties</artifactId>
-	<version>1.1</version>
+	<version>1.2-SNAPSHOT</version>
 
 	<name>FreeHEP Typed Properties</name>
 	<description>Enhancement for java.util.Properties to store typed properties and collections of those properties</description>
@@ -36,7 +36,7 @@
 		<connection>scm:git:git://github.com/freehep/freehep-typed-properties.git</connection>
 		<developerConnection>scm:git:git@github.com:freehep/freehep-typed-properties.git</developerConnection>
 		<url>http://github.com/freehep/freehep-typed-properties</url>
-		<tag>freehep-typed-properties-1.1</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 	<issueManagement>
