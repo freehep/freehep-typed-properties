@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>freehep-typed-properties - FreeHEP Typed Properties</title>
+    <title>freehep-typed-properties - Dependency Information</title>
     <style type="text/css" media="all">
       @import url("./css/maven-base.css");
       @import url("./css/maven-theme.css");
@@ -48,8 +48,8 @@
                                 <h5>General</h5>
                   <ul>
                   <li class="none">
-            <strong>Introduction</strong>
-          </li>
+                          <a href="index.html" title="Introduction">Introduction</a>
+            </li>
                   <li class="none">
                           <a href="license.html" title="License">License</a>
             </li>
@@ -93,12 +93,15 @@
     </div>
     <div id="bodyColumn">
       <div id="contentBox">
-        <div class="section"><h2>Introduction<a name="Introduction"></a></h2><p>The Typed Properties library replaces the java.util.Properties class and adds strict typong to it. The properties files read and written contain the type of the property (String, int, float, ...) and will type-check and return the correct type. Older property files (which contain merely strings) can also be read. Typed Properties also allow you to write lists (arrays) of values as well as tables (maps). You can also add your own handler for a specific type.</p><p>TypedProperties is similar to java.util.Properties but allows for storage of &quot;typed&quot; elements rather than just Strings.</p><p>Simple elements are stored as:</p><div class="source"><pre> key = javatype value
-      where javatype is for instance java.lang.String, java.lang.Integer etc.</pre></div><p>Complex types (arrays and tables) are also allowed. They are stored as:</p><div class="source"><pre> key{subkey} = javatype value
-      for tables
- 
- key[index] = javatype value
-      for arrays</pre></div><p>Tables can be recursive.</p><p>Methods are available to set and get properties of different types. The get methods all need a default which needs to be of the requested type, but can be set to null or some other default.</p><p>There is NO conversion from int to float etc.</p><p>Defaults for the whole table can be given by a backing TypedProperties table. If a property is not found the default table will be searched. They can be cascaded into many tables.</p><p>Setting a simple property to a value that is already set in the default, will remove the property from this table. A lookup will still give the value from the default table. Persisting this table will result in this property not being written.</p><p>TypedProperties is persistent by means of a standard properties file. Older files (without the type added) can also be read (but not written).</p></div>
+        <div class="section"><h2>Dependency Information<a name="Dependency_Information"></a></h2><a name="Dependency_Information"></a><div class="section"><h3>Apache Maven<a name="Apache_Maven"></a></h3><a name="Apache_Maven"></a><div class="source"><pre>&lt;dependency&gt;
+  &lt;groupId&gt;org.freehep&lt;/groupId&gt;
+  &lt;artifactId&gt;freehep-typed-properties&lt;/artifactId&gt;
+  &lt;version&gt;1.2-SNAPSHOT&lt;/version&gt;
+&lt;/dependency&gt;</pre></div></div><div class="section"><h3>Apache Buildr<a name="Apache_Buildr"></a></h3><a name="Apache_Buildr"></a><div class="source"><pre>'org.freehep:freehep-typed-properties:jar:1.2-SNAPSHOT'</pre></div></div><div class="section"><h3>Apache Ant<a name="Apache_Ant"></a></h3><a name="Apache_Ant"></a><div class="source"><pre>&lt;dependency org=&quot;org.freehep&quot; name=&quot;freehep-typed-properties&quot; rev=&quot;1.2-SNAPSHOT&quot;&gt;
+  &lt;artifact name=&quot;freehep-typed-properties&quot; type=&quot;jar&quot; /&gt;
+&lt;/dependency&gt;</pre></div></div><div class="section"><h3>Groovy Grape<a name="Groovy_Grape"></a></h3><a name="Groovy_Grape"></a><div class="source"><pre>@Grapes(
+@Grab(group='org.freehep', module='freehep-typed-properties', version='1.2-SNAPSHOT')
+)</pre></div></div><div class="section"><h3>Grails<a name="Grails"></a></h3><a name="Grails"></a><div class="source"><pre>compile 'org.freehep:freehep-typed-properties:1.2-SNAPSHOT'</pre></div></div><div class="section"><h3>Leiningen<a name="Leiningen"></a></h3><a name="Leiningen"></a><div class="source"><pre>[org.freehep/freehep-typed-properties &quot;1.2-SNAPSHOT&quot;]</pre></div></div><div class="section"><h3>SBT<a name="SBT"></a></h3><a name="SBT"></a><div class="source"><pre>libraryDependencies += &quot;org.freehep&quot; %% &quot;freehep-typed-properties&quot; % &quot;1.2-SNAPSHOT&quot;</pre></div></div></div>
       </div>
     </div>
     <div class="clear">
