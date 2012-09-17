@@ -1,10 +1,9 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.freehep</groupId>
 	<artifactId>freehep-typed-properties</artifactId>
-	<version>1.1-SNAPSHOT</version>
+	<version>1.1</version>
 
 	<name>FreeHEP Typed Properties</name>
 	<description>Enhancement for java.util.Properties to store typed properties and collections of those properties</description>
@@ -37,7 +36,7 @@
 		<connection>scm:git:git://github.com/freehep/freehep-typed-properties.git</connection>
 		<developerConnection>scm:git:git@github.com:freehep/freehep-typed-properties.git</developerConnection>
 		<url>http://github.com/freehep/freehep-typed-properties</url>
-		<tag>HEAD</tag>
+		<tag>freehep-typed-properties-1.1</tag>
 	</scm>
 
 	<issueManagement>
